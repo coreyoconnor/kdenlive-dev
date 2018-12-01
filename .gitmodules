@@ -1,0 +1,10 @@
+[submodule "kdenlive"]
+	path = kdenlive
+	url = git://anongit.kde.org/kdenlive.git
+[submodule "nixpkgs"]
+	path = nixpkgs
+	url = git@github.com:coreyoconnor/nixpkgs.git
+	branch = release
+[submodule "movit"]
+	path = movit
+	url = http://git.sesse.net/movit
