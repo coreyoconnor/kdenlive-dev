@@ -1,10 +1,12 @@
 [submodule "kdenlive"]
 	path = kdenlive
-	url = git://anongit.kde.org/kdenlive.git
+  url = git@github.com:coreyoconnor/kdenlive.git
+	branch = master
 [submodule "nixpkgs"]
 	path = nixpkgs
 	url = git@github.com:coreyoconnor/nixpkgs.git
 	branch = release
 [submodule "movit"]
 	path = movit
-	url = http://git.sesse.net/movit
+	url = git@github.com:coreyoconnor/movit.git
+	branch = master
