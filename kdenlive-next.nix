@@ -11,11 +11,12 @@ self: super: {
     };
 
     buildInputs = oldAttrs.buildInputs ++ [ self.libsForQt5.kdeclarative self.libsForQt5.kpurpose ];
+    enableParallelBuilding = true;
   })).override {
     mlt = self.mlt;
   };
 
-  mlt = super.mlt.overrideAttrs( oldAttrs: rec {
+  mlt = super.libsForQt5.mlt.overrideAttrs( oldAttrs: rec {
     name = "mlt-${version}";
     version = "6.12.0";
     src = self.fetchFromGitHub {

@@ -23,6 +23,8 @@ in {
     shellHook = ''
       alias cls=clear
     '';
-    buildInputs = with pkgs-dev; kdenlive.buildInputs ++ mlt.buildInputs ++ movit.buildInput;
+    nativeBuildInputs = with pkgs-dev; [ cmake pkgconfig extra-cmake-modules ];
+    buildInputs = with pkgs-dev; kdenlive.buildInputs ++ mlt.buildInputs ++ movit.buildInputs ++ [
+    ];
   };
 }
