@@ -10,3 +10,7 @@
 	path = movit
 	url = git@github.com:coreyoconnor/movit.git
 	branch = master
+[submodule "mlt"]
+	path = mlt
+	url = git@github.com:coreyoconnor/mlt.git
+	branch = master

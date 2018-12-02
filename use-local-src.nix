@@ -7,5 +7,12 @@ self: super: {
   });
   movit = super.movit.overrideAttrs (oldAttrs: rec {
     src = self.lib.cleanSource ./movit;
+    nativeBuildInputs = with self; oldAttrs.nativeBuildInputs ++ [ libtool ];
+    buildInputs = with self; oldAttrs.buildInputs ++ [ autoconf gettext automake ];
+    preConfigure = ''
+      libtoolize --force --install --copy
+      aclocal
+      autoconf
+    '';
   });
 }
