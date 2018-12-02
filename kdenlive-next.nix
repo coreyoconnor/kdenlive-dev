@@ -1,4 +1,4 @@
-self: super: {
+self: super: rec {
   kdenlive = (super.kdenlive.overrideAttrs (oldAttrs: rec {
     name = "kdenlive-${version}";
     version = "19-03-70";
@@ -13,18 +13,19 @@ self: super: {
     buildInputs = oldAttrs.buildInputs ++ [ self.libsForQt5.kdeclarative self.libsForQt5.kpurpose ];
     enableParallelBuilding = true;
   })).override {
-    mlt = self.mlt;
+    inherit mlt;
   };
 
   mlt = super.libsForQt5.mlt.overrideAttrs( oldAttrs: rec {
     name = "mlt-${version}";
-    version = "6.12.0";
+    version = "6.13.0";
     src = self.fetchFromGitHub {
       owner = "mltframework";
       repo = "mlt";
       rev = "adc5a2284b3a1073cb364c5f07d1d7c97e94c937";
       sha256 = "140sb6j41xkgfp9ggra2m1lcj1865bx490vk7svm3phh73fymkm2";
     };
+    buildInputs = with self; oldAttrs.buildInputs ++ [ SDL2 ];
   });
 
   movit = super.movit.overrideAttrs( oldAttrs: rec {
