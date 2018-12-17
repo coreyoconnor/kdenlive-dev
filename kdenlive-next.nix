@@ -13,10 +13,10 @@ self: super: rec {
     buildInputs = oldAttrs.buildInputs ++ [ self.libsForQt5.kdeclarative self.libsForQt5.kpurpose ];
     enableParallelBuilding = true;
   })).override {
-    inherit mlt;
+    inherit (self) mlt;
   };
 
-  mlt = super.libsForQt5.mlt.overrideAttrs( oldAttrs: rec {
+  mlt = (super.libsForQt5.mlt.overrideAttrs( oldAttrs: rec {
     name = "mlt-${version}";
     version = "6.13.0";
     src = self.fetchFromGitHub {
@@ -26,7 +26,9 @@ self: super: rec {
       sha256 = "140sb6j41xkgfp9ggra2m1lcj1865bx490vk7svm3phh73fymkm2";
     };
     buildInputs = with self; oldAttrs.buildInputs ++ [ SDL2 ];
-  });
+  })).override {
+    inherit (self) movit;
+  };
 
   movit = super.movit.overrideAttrs( oldAttrs: rec {
     name = "movit-${version}";
