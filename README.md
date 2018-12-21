@@ -11,13 +11,12 @@
 - implied: fail if using multiple threads, GL, and no thread management hooks.
 - implied: document requirement that real time plus no multi threading requires a valid GL context
   for application's use of MLT (get frame specifically).
-- be explicit in docs as to the potential cost of get_frame. Encourage async solutions where
-  immediate
-display is not required.
+- be explicit in docs as to the potential cost of get_frame. Encourage solutions that share frame
+  data.
 
 ## for kdenlive
 
 - clip properties updates async
-- clip thumbnails update async?
+- clip thumbnails update async
   - these are *currently* safe as all possible Clips do not require GL
   - QuartzComposer
