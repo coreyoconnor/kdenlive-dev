@@ -16,7 +16,8 @@
 
 ## for kdenlive
 
-- [ ] clip properties updates async
-- [ ] clip thumbnails update async
+- [ ] push glwidget changes upstream
+- [ ] monitor clip properties updates async
+- [ ] clip library thumbnails update async w/ context
   - these are *currently* safe as all possible Clips do not require GL
   - QuartzComposer
